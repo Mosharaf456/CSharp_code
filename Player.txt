@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+   public class Player:Person
+    {
+       internal static int id = 0;
+       internal static string playerId = "PL-xxxx";
+        private int performanceRate;
+
+        public int PerformanceRate
+        {
+            get { return performanceRate; }
+            set { performanceRate = value; }
+        }
+        private int noOfGoal;
+
+        internal int NoOfGoal
+        {
+            get { return noOfGoal; }
+            set { noOfGoal = value; }
+        }
+      
+        private string playingPosition;
+
+        public string PlayingPosition
+        {
+            get { return playingPosition; }
+            set { playingPosition = value; }
+        }
+      //Empty Constructor
+        public Player()
+        {
+           // id++;
+        }
+      /** static Player()
+        {
+            id++;
+            playerId = "PL-"+id+"";
+        }*/
+        public Player(string name, string address, int performanceRate, int noOfGoal, string playingPosition): base(name, address)
+        {
+            this.performanceRate = performanceRate;
+            this.noOfGoal = noOfGoal;
+            this.playingPosition = playingPosition;
+           // id++;
+           // playerId = "PL-" + id;
+        }
+    
+        public void ShowInformation()
+        {
+             id++;
+             playerId = "PL-"+id;
+            Console.WriteLine("\nPlayerId:"+Player.playerId);
+            Console.WriteLine("\nName:" + this.Name + "\nAddress:" + this.address + "\nPerformancerate:" + this.PerformanceRate + "\nNoOfGoal:" + NoOfGoal + "\nPlayingPosition:" + this.PlayingPosition);
+           // Console.WriteLine(Player.playerId);
+        }
+        
+
+    }
+}

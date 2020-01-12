@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+   public class Coach:Person
+   {
+     
+        internal double exprience;
+
+        internal static  string coachId = "SC-XXX-18";
+        public static int id = 0;
+
+        public Coach()
+        {
+        }
+       /* static Coach()
+        {
+            id++;
+            coachId="SC-"+id+"-18";
+        }*/
+       
+        public Coach(string name, string address, double experience): base(name, address)
+        {
+            this.exprience = experience;
+        }
+     
+        public double Exprience
+        {
+            get { return exprience; }
+            set { exprience = value; }
+        }
+       
+     
+        public bool PlayerStatus(object p3)
+        {
+            Player p2 = (Player)p3;
+            if (p2.PerformanceRate >= 75 && p2.PerformanceRate <= 100 &&p2.NoOfGoal>20)
+            {
+                return true;
+            }
+            
+            return false; 
+        }
+       //Coach Information
+        public  void ShowInformation1()
+        {
+            id++;
+            coachId = "SC-" + id + "-18";
+            Console.WriteLine("\nName:" +base.Name + "\nAddress:" + base.Address + "\nCoach experience:" + this.exprience);
+            Console.WriteLine(Coach.coachId);
+        }
+    }
+}
